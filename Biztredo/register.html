@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+    <nav class="navbar">
+        <div class="logo">
+            <h3>BIZTREDO</h3>
+        </div>
+        <div class="login">
+            <p><a href="login.html">Login</a></p>
+            <p><a href="register.html">Register</a></p>
+        </div>
+
+
+    </nav>
+
+
+
+    <div class="register-container">
+        
+        <form class="form" name="forms" onsubmit="return validateForm()" action="" method="post" >
+            <div class="nam" id="cname">
+                <input type="password"  placeholder="Enter OTP/Password" id="passInp" >
+                <span id="passerror"></span>
+            </div>
+            <div class="nam">
+                <input type="number" id="mobile" placeholder="Mobile No." ><span class="formerror" id="moberror"></span>
+             </div>
+             <div class='nam'  >
+                <input type="text" id="Fullname" placeholder="Fullname" ><span class="formerror" id="Fullnerror"></span>
+               
+             </div>
+             <div class="nam" id="password">
+               
+                <input type="email" id="user" placeholder="Enter Valid Email" ><span class="formerror" id="emailerror"></span>
+             </div>
+             <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+<!-- ...............................Javascript.......................... -->
+
+<script>
+    function validateForm(){
+        let pass = document.getElementById('passInp').value
+        let mobile =document.getElementById('mobile').value
+        let mobileV = /^(?:(?:\+|0{0,2})91(\s*|[\-])?|[0]?)?([6789]\d{2}([ -]?)\d{3}([ -]?)\d{4})$/
+        let Fullname =document.getElementById('Fullname').value
+        let user  = document.getElementById('user').value
+        let email =/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    
+   
+
+         if(pass==''){
+                document.getElementById('passerror').innerHTML='Please enter passward'
+                return false
+            }else if (pass.length < 6){
+            document.getElementById('passerror').innerHTML='Password should be at least 6 characters long.'
+            }else{
+                document.getElementById('passerror').innerHTML=''
+            }
+
+   if(mobile==''){
+    document.getElementById('moberror').innerHTML ='Please enter the mobile no.'
+   }else if(mobile.match(mobileV)){
+    document.getElementById('moberror').innerHTML =''
+   }
+   else {
+     document.getElementById('moberror').innerHTML ='Please enter the valid mobile no'
+   }
+   if(Fullname==''){
+    document.getElementById('Fullnerror').innerHTML ='Please Enter Fullname'
+
+
+   }else{
+    document.getElementById('Fullnerror').innerHTML =''
+
+   }
+   if(user ==''){
+    document.getElementById('emailerror').innerHTML ='Please enter your email id'
+   } else if(!user.match(email)){
+    document.getElementById('emailerror').innerHTML = 'Please enter Valid email id'
+   } else{
+    document.getElementById('emailerror').innerHTML=''
+
+   }
+   return false
+}
+</script>
+    
+</body>
+
+</html>

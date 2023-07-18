@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ....................Navbar............... -->
+    <nav class="navbar">
+        <div class="logo">
+            <h3>BIZTREDO</h3>
+        </div>
+        <div class="login">
+            <p><a href="login.html">Login</a></p>
+            <p><a href="#">Register</a></p>
+        </div>
+    </nav>
+
+    <!-- .....................Login Container................. -->
+    <div class="login-container">
+        <form class="form" name="forms" onsubmit="return validateForm()" action="" method="post" >
+          <div class="main">
+            <p>Sign in using</p>
+            <p><a href="register.html" >Sign up</a></p>
+          </div>
+          <div id="margin"></div>
+        
+            <div class="nam">
+               
+                <input  placeholder="Enter mobile Number/Enter Email" id="userInp" ><span id="usererror" class="formerror"></span>
+               
+             </div>
+             <div class="nam">
+               
+                <input type="password"  placeholder="Enter OTP/Password" id="passInp" >
+                <span id="passerror"></span>
+               
+             </div>
+       
+             <div class="check">
+             <input type="checkbox" id="imp" name="imp" value="checkbox">
+             <label for="imp"> keep me signed in</label>
+            </div>
+             <div class="submit">
+               <button class="btn" type="submit">Proceed</button>
+               <button class="btn1" type="submit">Forgot Password?</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- ...........................Javscript.................... -->
+    <script>
+        function validateForm(){
+            let user = document.getElementById('userInp').value
+            let pass = document.getElementById('passInp').value
+            let email =/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            let mobile = /^\+(?:[0-9] ?){6,14}[0-9]$/
+
+            if(user ==''){
+                document.getElementById('usererror').innerHTML='Please enter your email/mobile no.'
+                // alert('Please enter your name')
+                return false
+
+            }else if(!user.match(email)){
+                document.getElementById('usererror').innerHTML='Enter a valid email address'}
+
+          
+            else{
+                document.getElementById('usererror').innerHTML=''
+
+            }
+
+
+            if(pass==''){
+                document.getElementById('passerror').innerHTML='Please enter passward'
+                return false
+            }else if (pass.length < 6){
+            document.getElementById('passerror').innerHTML='Password should be at least 6 characters long.'
+            }else{
+                document.getElementById('passerror').innerHTML=''
+            }
+
+            return false
+
+        }
+       
+
+
+    </script>
+    
+</body>
+</html>
